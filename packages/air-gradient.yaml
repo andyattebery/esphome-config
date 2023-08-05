@@ -72,14 +72,14 @@ sensor:
     type: PMS5003T
     uart_id: uart_pmsx003
     pm_2_5:
-      name: "${device_name} Particulate Matter <2.5µm Concentration"
+      name: "${device_name} PM 2.5"
       id: pm25
   # https://esphome.io/components/sensor/senseair.html
   - platform: senseair
     uart_id: uart_senseair
     co2:
       id: co2
-      name: "${device_name} CO2 Value"
+      name: "${device_name} CO2"
     update_interval: 60s
 
 # Configure switches
