@@ -6,10 +6,17 @@ substitutions:
 # https://esphome.io/components/esphome
 esphome:
   name: $device_name
+  project:
+    name: "andyattebery.sonoff-31"
+    version: "1.0"
 # https://esphome.io/components/esp8266.html
 esp8266:
   board: esp01_1m
   restore_from_flash: true
+# https://esphome.io/guides/creators#relevant-documentation
+dashboard_import:
+  package_import_url: github://andyattebery/esphome-configs/packages/sonoff-s31.yaml
+  import_full_config: false
 
 # Configure binary sensors
 # https://esphome.io/components/binary_sensor/

@@ -1,5 +1,7 @@
 # ESPHome Device Configuration
 
+This uses ESPHome [packages](https://esphome.io/guides/configuration-types#packages) and [sharing](https://esphome.io/guides/creators).
+
 ## KMC Smart Tap
 
 Flashing can be done with another computer and OS version, but this is what _eventually_ worked for me.
