@@ -7,7 +7,7 @@ substitutions:
 esphome:
   name: $device_name
   project:
-    name: "andyattebery.sonoff-31"
+    name: "Sonoff.S31"
     version: "1.0"
 # https://esphome.io/components/esp8266.html
 esp8266:

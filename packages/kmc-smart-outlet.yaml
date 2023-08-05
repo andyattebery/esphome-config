@@ -7,7 +7,7 @@ substitutions:
 esphome:
   name: "${device_name}"
   project:
-    name: "andyattebery.kmc-smart-outlet"
+    name: "KMC.SmartOutlet"
     version: "1.0"
 # https://esphome.io/components/esp8266.html
 esp8266:

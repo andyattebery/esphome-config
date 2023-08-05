@@ -23,11 +23,11 @@ wifi:
   ssid: "${wifi_ssid}"
   password: "${wifi_password}"
 
-  # Enable fallback hotspot in case wifi connection fails
+  # Enable fallback access point in case wifi connection fails
   ap:
-    ssid: "${device_name}-Fallback-Hotspot"
+    ssid: "${device_name}-Fallback-AP"
     password: "${fallback_ap_password}"
 
-# Enable captive portal for fallback hotspot
+# Enable captive portal for fallback access point
 # https://esphome.io/components/captive_portal
 captive_portal:
