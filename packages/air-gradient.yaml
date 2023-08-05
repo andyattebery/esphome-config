@@ -94,7 +94,7 @@ sensor:
     uart_id: uart_senseair
     co2:
       id: co2
-      name: "$CO2"
+      name: "CO2"
     update_interval: 60s
 
 # Configure switches
