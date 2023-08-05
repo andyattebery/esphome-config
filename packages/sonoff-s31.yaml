@@ -1,6 +1,6 @@
 # Variables
 substitutions:
-  device_name: "outlet"
+  device_name: ""
 
 # Core ESPHome config
 # https://esphome.io/components/esphome
