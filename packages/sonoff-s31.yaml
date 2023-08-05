@@ -1,0 +1,77 @@
+# Variables
+substitutions:
+  device_name: "outlet"
+
+# Core ESPHome config
+# https://esphome.io/components/esphome
+esphome:
+  name: $device_name
+# https://esphome.io/components/esp8266.html
+esp8266:
+  board: esp01_1m
+  restore_from_flash: true
+
+# Configure binary sensors
+# https://esphome.io/components/binary_sensor/
+binary_sensor:
+  # https://esphome.io/components/binary_sensor/gpio
+  - platform: gpio
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "${device_name} Button"
+    on_press:
+      - switch.toggle: relay
+  # https://esphome.io/components/binary_sensor/status
+  - platform: status
+    name: "${device_name} Status"
+
+# Enable logging
+# https://esphome.io/components/logger
+logger:
+  # Disable UART logging (UART logging interferes with cse7766)
+  baud_rate: 0
+
+# Configure sensors
+# https://esphome.io/components/sensor/
+sensor:
+  # https://esphome.io/components/sensor/cse7766.html
+  - platform: cse7766
+    current:
+      name: "${device_name} Current"
+      accuracy_decimals: 1
+    voltage:
+      name: "${device_name} Voltage"
+      accuracy_decimals: 1
+    power:
+      name: "${device_name} Power"
+      accuracy_decimals: 1
+    energy:
+      name: "${device_name} Energy"
+      accuracy_decimals: 1
+  # https://esphome.io/components/sensor/wifi_signal
+  - platform: wifi_signal
+    name: "${device_name} WiFi Signal"
+    update_interval: 60s
+
+# Configure switches
+# https://esphome.io/components/switch/
+switch:
+  # https://esphome.io/components/switch/gpio
+  - platform: gpio
+    name: "${device_name} Switch"
+    pin: GPIO12
+    id: relay
+    restore_mode: RESTORE_DEFAULT_ON
+
+# Configure status LED
+# https://esphome.io/components/light/status_led
+status_led:
+  pin: GPIO13
+
+# Configure UART
+# https://esphome.io/components/uart
+uart:
+  rx_pin: RX
+  baud_rate: 4800

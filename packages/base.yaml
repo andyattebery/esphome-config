@@ -1,0 +1,31 @@
+# Variables
+substitutions:
+  api_encryption_key: "api_encryption_key"
+  ota_password: "ota_password"
+  fallback_ap_password: "fallback_ap_password"
+
+# Enable Home Assistant API
+# https://esphome.io/components/api
+api:
+  encryption:
+    key: "${api_encryption_key}"
+
+# Enable over-the-air updates
+# https://esphome.io/components/ota
+ota:
+  password: "${ota_password}"
+
+# Set WiFi credentials
+# https://esphome.io/components/wifi
+wifi:
+  ssid: "${wifi_ssid}"
+  password: "${wifi_password}"
+
+  # Enable fallback hotspot in case wifi connection fails
+  ap:
+    ssid: "${device_name}-Fallback-Hotspot"
+    password: "${fallback_ap_password}"
+
+# Enable captive portal for fallback hotspot
+# https://esphome.io/components/captive_portal
+captive_portal:
