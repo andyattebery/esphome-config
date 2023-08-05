@@ -51,6 +51,10 @@ interval:
       - display.page.show_next: oled
       - component.update: oled
 
+# Enable logging
+# https://esphome.io/components/logger
+logger:
+
 # Configure sensors
 # https://esphome.io/components/sensor/
 sensor:
