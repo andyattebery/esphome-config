@@ -1,8 +1,8 @@
 substitutions:
   device_name: "example-air-gradient"
-  api_encryption_key: "RFNoM3k4SlUwYnd1RUtnYUthVFh1ZFBhckJOMFE0NnQ="
-  fallback_ap_password: "qHsyj6MDIFpF"
-  ota_password: "omhB9RN3t6e7SE561mctUZxVklNnxYjq"
+  api_encryption_key: "RDJlTVo4NDluUG9nb2JYZEtkQWlaQkNMNml5VXdZZ2Y="
+  fallback_ap_password: "LC0FDqYM6HPO"
+  ota_password: "m6Pv6Hzq3IkybqweaQS1k0cEXHfRebsA"
   wifi_password: !secret wifi_password
   wifi_ssid: !secret wifi_ssid
 

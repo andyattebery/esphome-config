@@ -1,10 +1,22 @@
 # Variables
 substitutions:
+  device_name: ""
+  friendly_name: "${device_name}"
+  esphome_project_name: ""
+  esphome_project_version: ""
   api_encryption_key: ""
   fallback_ap_password: ""
   ota_password: ""
   wifi_password: ""
   wifi_ssid: ""
+
+# https://esphome.io/components/esphome
+esphome:
+  name: "${device_name}"
+  friendly_name: "${friendly_name}"
+  project:
+    name: "${esphome_project_name}"
+    version: "${esphome_project_version}"
 
 # Enable Home Assistant API
 # https://esphome.io/components/api

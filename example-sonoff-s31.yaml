@@ -1,8 +1,8 @@
 substitutions:
   device_name: "example-sonoff-s31"
-  api_encryption_key: "RGl1SXQ0UnNyN0ZFeGl2NE96YWF3cGxNY2VlTTNGa1I="
-  fallback_ap_password: "dVm4xh8TQ0SG"
-  ota_password: "V2GKC2HvZRmJuayDyjQfTE8vdcZkRfsh"
+  api_encryption_key: "YlF4NzREa3FzTDdQSjV1a0hTNXd4RjBvWUwyalk5QXE="
+  fallback_ap_password: "cGmjScehpiUt"
+  ota_password: "l7Gr2Hry0exPPn2CPmlCyU9TW1eT05YZ"
   wifi_password: !secret wifi_password
   wifi_ssid: !secret wifi_ssid
 

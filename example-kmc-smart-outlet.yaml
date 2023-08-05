@@ -1,8 +1,8 @@
 substitutions:
   device_name: "example-kmc-smart-outlet"
-  api_encryption_key: "bUgzeEJZZ3psenhsQ0FjUzB2WFR6M25yamhvdFZNSGo="
-  fallback_ap_password: "XHRwz2sdzIjV"
-  ota_password: "HoMZuj4cFBERtkd4KTvACnwg4etjg2Wn"
+  api_encryption_key: "WnZ4a3pVSkNxcUllaHhyR1JsdzlMY0VseUVQWGR0czA="
+  fallback_ap_password: "5Q56egcwcJCX"
+  ota_password: "7XnbHOVAwK7pn1oJErK0lzThHO2r89Lq"
   wifi_password: !secret wifi_password
   wifi_ssid: !secret wifi_ssid
 
