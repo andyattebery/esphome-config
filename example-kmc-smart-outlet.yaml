@@ -1,0 +1,14 @@
+substitutions:
+  device_name: "example-kmc-smart-outlet"
+  api_encryption_key: "bUgzeEJZZ3psenhsQ0FjUzB2WFR6M25yamhvdFZNSGo="
+  fallback_ap_password: "XHRwz2sdzIjV"
+  ota_password: "HoMZuj4cFBERtkd4KTvACnwg4etjg2Wn"
+  wifi_password: !secret wifi_password
+  wifi_ssid: !secret wifi_ssid
+
+packages:
+  remote_package:
+    url: https://github.com/andyattebery/esphome-configs
+    files:
+      - packages/base.yaml
+      - packages/kmc-smart-outlet.yaml

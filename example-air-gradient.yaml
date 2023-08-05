@@ -1,0 +1,14 @@
+substitutions:
+  device_name: "example-air-gradient"
+  api_encryption_key: "RFNoM3k4SlUwYnd1RUtnYUthVFh1ZFBhckJOMFE0NnQ="
+  fallback_ap_password: "qHsyj6MDIFpF"
+  ota_password: "omhB9RN3t6e7SE561mctUZxVklNnxYjq"
+  wifi_password: !secret wifi_password
+  wifi_ssid: !secret wifi_ssid
+
+packages:
+  remote_package:
+    url: https://github.com/andyattebery/esphome-configs
+    files:
+      - packages/base.yaml
+      - packages/air-gradient.yaml

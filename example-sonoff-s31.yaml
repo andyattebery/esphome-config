@@ -1,0 +1,14 @@
+substitutions:
+  device_name: "example-sonoff-s31"
+  api_encryption_key: "RGl1SXQ0UnNyN0ZFeGl2NE96YWF3cGxNY2VlTTNGa1I="
+  fallback_ap_password: "dVm4xh8TQ0SG"
+  ota_password: "V2GKC2HvZRmJuayDyjQfTE8vdcZkRfsh"
+  wifi_password: !secret wifi_password
+  wifi_ssid: !secret wifi_ssid
+
+packages:
+  remote_package:
+    url: https://github.com/andyattebery/esphome-configs
+    files:
+      - packages/base.yaml
+      - packages/sonoff-s31.yaml
