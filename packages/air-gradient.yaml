@@ -73,11 +73,20 @@ sensor:
     update_interval: 5s
   # https://esphome.io/components/sensor/pmsx003.html
   - platform: pmsx003
-    type: PMS5003T
+    type: PMSX003
     uart_id: uart_pmsx003
+    pm_1_0:
+      name: "${device_name} PM 1.0"
+      id: pm1
+      device_class: pm1
     pm_2_5:
       name: "${device_name} PM 2.5"
       id: pm25
+      device_class: pm25
+    pm_10_0:
+      name: "${device_name} PM 10.0"
+      id: pm10
+      device_class: pm10
   # https://esphome.io/components/sensor/senseair.html
   - platform: senseair
     uart_id: uart_senseair
