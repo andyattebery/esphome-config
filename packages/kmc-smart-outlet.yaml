@@ -1,11 +1,13 @@
 # Variables
 substitutions:
   device_name: ""
+  friendly_name: "${device_name}"
 
 # Core ESPHome config
 # https://esphome.io/components/esphome
 esphome:
   name: "${device_name}"
+  friendly_name: "${friendly_name}"
   project:
     name: "KMC.SmartOutlet"
     version: "1.0"
@@ -16,6 +18,20 @@ esp8266:
 dashboard_import:
   package_import_url: github://andyattebery/esphome-configs/packages/kmc-smart-outlet.yaml
   import_full_config: false
+
+# https://esphome.io/components/binary_sensor/
+binary_sensor:
+  # https://esphome.io/components/binary_sensor/gpio
+  - platform: gpio
+    pin:
+      number: GPIO16
+      mode: INPUT
+      inverted: true
+    name: "${device_name} button"
+    on_press:
+      - switch.toggle: relay1
+      - switch.toggle: relay2
+      - switch.toggle: relay3
 
 # Enable logging
 # https://esphome.io/components/logger
@@ -44,7 +60,7 @@ sensor:
 status_led:
   pin:
     number: GPIO1
-    inverted: yes
+    inverted: false
 
 # Configure switches
 # https://esphome.io/components/switch/
