@@ -7,11 +7,13 @@
 # Variables
 substitutions:
   device_name: ""
+  friendly_name: "${device_name}"
 
 # Core ESPHome config
 # https://esphome.io/components/esphome
 esphome:
   name: "${device_name}"
+  friendly_name: "${friendly_name}"
   project:
     name: "AirGradient.DIY"
     version: "1.0"
@@ -62,13 +64,13 @@ sensor:
   - platform: sht3xd
     temperature:
       id: temp
-      name: "${device_name} Temperature"
+      name: "Temperature"
       filters:
       - lambda: return x * (9.0/5.0) + 32.0 - 2.25; 
       unit_of_measurement: "°F"
     humidity:
       id: humidity
-      name: "${device_name} Humidity"
+      name: "Humidity"
     address: 0x44
     update_interval: 5s
   # https://esphome.io/components/sensor/pmsx003.html
@@ -76,15 +78,15 @@ sensor:
     type: PMSX003
     uart_id: uart_pmsx003
     pm_1_0:
-      name: "${device_name} PM 1.0"
+      name: "PM 1.0"
       id: pm1
       device_class: pm1
     pm_2_5:
-      name: "${device_name} PM 2.5"
+      name: "PM 2.5"
       id: pm25
       device_class: pm25
     pm_10_0:
-      name: "${device_name} PM 10.0"
+      name: "PM 10.0"
       id: pm10
       device_class: pm10
   # https://esphome.io/components/sensor/senseair.html
@@ -92,7 +94,7 @@ sensor:
     uart_id: uart_senseair
     co2:
       id: co2
-      name: "${device_name} CO2"
+      name: "$CO2"
     update_interval: 60s
 
 # Configure switches
@@ -102,7 +104,7 @@ switch:
   # Solution from this thread:
   # https://community.home-assistant.io/t/esphome-flashing-over-wifi-does-not-work/357352/1
   - platform: safe_mode
-    name: "${device_name} Flash Mode (Safe Mode)"
+    name: "Flash Mode (Safe Mode)"
 
 # Configure UART
 # https://esphome.io/components/uart

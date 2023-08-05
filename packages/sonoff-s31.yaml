@@ -1,11 +1,13 @@
 # Variables
 substitutions:
   device_name: ""
+  friendly_name: "${device_name}"
 
 # Core ESPHome config
 # https://esphome.io/components/esphome
 esphome:
-  name: $device_name
+  name: "${device_name}"
+  friendly_name: "${friendly_name}"
   project:
     name: "Sonoff.S31"
     version: "1.0"
@@ -18,7 +20,6 @@ dashboard_import:
   package_import_url: github://andyattebery/esphome-configs/packages/sonoff-s31.yaml
   import_full_config: false
 
-# Configure binary sensors
 # https://esphome.io/components/binary_sensor/
 binary_sensor:
   # https://esphome.io/components/binary_sensor/gpio
@@ -27,12 +28,12 @@ binary_sensor:
       number: GPIO0
       mode: INPUT_PULLUP
       inverted: True
-    name: "${device_name} Button"
+    name: "Button"
     on_press:
       - switch.toggle: relay
   # https://esphome.io/components/binary_sensor/status
   - platform: status
-    name: "${device_name} Status"
+    name: "Status"
 
 # Enable logging
 # https://esphome.io/components/logger
@@ -40,44 +41,40 @@ logger:
   # Disable UART logging (UART logging interferes with cse7766)
   baud_rate: 0
 
-# Configure sensors
 # https://esphome.io/components/sensor/
 sensor:
   # https://esphome.io/components/sensor/cse7766.html
   - platform: cse7766
     current:
-      name: "${device_name} Current"
+      name: "Current"
       accuracy_decimals: 1
     voltage:
-      name: "${device_name} Voltage"
+      name: "Voltage"
       accuracy_decimals: 1
     power:
-      name: "${device_name} Power"
+      name: "Power"
       accuracy_decimals: 1
     energy:
-      name: "${device_name} Energy"
+      name: "Energy"
       accuracy_decimals: 1
   # https://esphome.io/components/sensor/wifi_signal
   - platform: wifi_signal
-    name: "${device_name} WiFi Signal"
+    name: "WiFi Signal"
     update_interval: 60s
 
-# Configure switches
 # https://esphome.io/components/switch/
 switch:
   # https://esphome.io/components/switch/gpio
   - platform: gpio
-    name: "${device_name} Switch"
+    name: "Switch"
     pin: GPIO12
     id: relay
     restore_mode: RESTORE_DEFAULT_ON
 
-# Configure status LED
 # https://esphome.io/components/light/status_led
 status_led:
   pin: GPIO13
 
-# Configure UART
 # https://esphome.io/components/uart
 uart:
   rx_pin: RX

@@ -28,11 +28,14 @@ binary_sensor:
       number: GPIO16
       mode: INPUT
       inverted: true
-    name: "${device_name} button"
+    name: "Button"
     on_press:
       - switch.toggle: relay1
       - switch.toggle: relay2
       - switch.toggle: relay3
+  # https://esphome.io/components/binary_sensor/status
+  - platform: status
+    name: "Status"
 
 # Enable logging
 # https://esphome.io/components/logger
@@ -47,13 +50,17 @@ sensor:
     cf_pin: GPIO4
     cf1_pin: GPIO5
     current:
-      name: "${device_name} Current"
+      name: "Current"
     voltage:
-      name: "${device_name} Voltage"
+      name: "Voltage"
     power:
-      name: "${device_name} Power"
+      name: "Power"
     energy:
-      name: "${device_name} Energy"
+      name: "Energy"
+    update_interval: 60s
+  # https://esphome.io/components/sensor/wifi_signal
+  - platform: wifi_signal
+    name: "WiFi Signal"
     update_interval: 60s
 
 # Configure status LED
@@ -68,17 +75,17 @@ status_led:
 switch:
   # https://esphome.io/components/switch/gpio
   - platform: gpio
-    name: "${device_name} Switch 1"
+    name: "Switch 1"
     pin: GPIO15
     id: relay1
     restore_mode: RESTORE_DEFAULT_ON
   - platform: gpio
-    name: "${device_name} Switch 2"
+    name: "Switch 2"
     pin: GPIO13
     id: relay2
     restore_mode: RESTORE_DEFAULT_ON
   - platform: gpio
-    name: "${device_name} Switch 3"
+    name: "Switch 3"
     pin: GPIO14
     id: relay3
     restore_mode: RESTORE_DEFAULT_ON
