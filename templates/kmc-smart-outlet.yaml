@@ -1,14 +1,11 @@
 # Variables
 substitutions:
-  esphome_project_name: "Sonoff.S31"
+  esphome_project_name: "KMC.SmartOutlet"
   esphome_project_version: "1.0"
 
 # https://esphome.io/guides/configuration-types#packages
 packages:
-  remote_package:
-    url: https://github.com/andyattebery/esphome-configs
-    files:
-      - packages/base.yaml
+  base: !include base.yaml
 
 # https://esphome.io/components/esp8266.html
 esp8266:
@@ -16,7 +13,7 @@ esp8266:
   restore_from_flash: true
 # https://esphome.io/guides/creators#relevant-documentation
 dashboard_import:
-  package_import_url: github://andyattebery/esphome-configs/packages/sonoff-s31.yaml
+  package_import_url: github://andyattebery/esphome-configs/packages/kmc-smart-outlet.yaml
   import_full_config: false
 
 # https://esphome.io/components/binary_sensor/
@@ -24,12 +21,14 @@ binary_sensor:
   # https://esphome.io/components/binary_sensor/gpio
   - platform: gpio
     pin:
-      number: GPIO0
-      mode: INPUT_PULLUP
-      inverted: True
+      number: GPIO16
+      mode: INPUT
+      inverted: true
     name: "Button"
     on_press:
-      - switch.toggle: relay
+      - switch.toggle: relay1
+      - switch.toggle: relay2
+      - switch.toggle: relay3
   # https://esphome.io/components/binary_sensor/status
   - platform: status
     name: "Status"
@@ -37,44 +36,52 @@ binary_sensor:
 # Enable logging
 # https://esphome.io/components/logger
 logger:
-  # Disable UART logging (UART logging interferes with cse7766)
-  baud_rate: 0
 
+# Configure sensors
 # https://esphome.io/components/sensor/
 sensor:
-  # https://esphome.io/components/sensor/cse7766.html
-  - platform: cse7766
+  # https://esphome.io/components/sensor/hlw8012.html
+  - platform: hlw8012
+    sel_pin: GPIO12
+    cf_pin: GPIO4
+    cf1_pin: GPIO5
     current:
       name: "Current"
-      accuracy_decimals: 1
     voltage:
       name: "Voltage"
-      accuracy_decimals: 1
     power:
       name: "Power"
-      accuracy_decimals: 1
     energy:
       name: "Energy"
-      accuracy_decimals: 1
+    update_interval: 60s
   # https://esphome.io/components/sensor/wifi_signal
   - platform: wifi_signal
     name: "WiFi Signal"
     update_interval: 60s
 
+# Configure status LED
+# https://esphome.io/components/light/status_led
+status_led:
+  pin:
+    number: GPIO1
+    inverted: false
+
+# Configure switches
 # https://esphome.io/components/switch/
 switch:
   # https://esphome.io/components/switch/gpio
   - platform: gpio
-    name: "Switch"
-    pin: GPIO12
-    id: relay
+    name: "Switch 1"
+    pin: GPIO15
+    id: relay1
     restore_mode: RESTORE_DEFAULT_ON
-
-# https://esphome.io/components/light/status_led
-status_led:
-  pin: GPIO13
-
-# https://esphome.io/components/uart
-uart:
-  rx_pin: RX
-  baud_rate: 4800
+  - platform: gpio
+    name: "Switch 2"
+    pin: GPIO13
+    id: relay2
+    restore_mode: RESTORE_DEFAULT_ON
+  - platform: gpio
+    name: "Switch 3"
+    pin: GPIO14
+    id: relay3
+    restore_mode: RESTORE_DEFAULT_ON

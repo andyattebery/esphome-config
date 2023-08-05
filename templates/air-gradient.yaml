@@ -11,10 +11,7 @@ substitutions:
 
 # https://esphome.io/guides/configuration-types#packages
 packages:
-  remote_package:
-    url: https://github.com/andyattebery/esphome-configs
-    files:
-      - packages/base.yaml
+  base: !include base.yaml
 
 # https://esphome.io/components/esp8266.html
 esp8266:
