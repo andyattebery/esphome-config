@@ -1,0 +1,104 @@
+# Adapted from:
+# - https://community.home-assistant.io/t/airgradient-diy-and-homeassistant/353690/5
+# - https://github.com/ajfriesen/ESPHome-AirGradient
+# - https://github.com/ozonejunkieau/airgradient-esphome
+# - https://github.com/LongDono/airgradient-homeassistant
+
+# Variables
+substitutions:
+  device_name: ""
+
+# Core ESPHome config
+# https://esphome.io/components/esphome
+esphome:
+  name: "${device_name}"
+  project:
+    name: "AirGradient.DIY"
+    version: "1.0"
+# https://esphome.io/components/esp8266.html
+esp8266:
+  board: d1_mini
+
+# https://esphome.io/components/display/
+display:
+  # https://esphome.io/components/display/ssd1306.html
+  - platform: ssd1306_i2c
+    id: oled
+    model: "SSD1306 64x48"
+    pages:
+      - id: page1
+        lambda: |-
+          it.printf(0, 0, id(main_font), "CO2: %.0fppm", id(co2).state);
+          it.printf(0, 10, id(main_font), "PM25: %.0fum/m3", id(pm25).state);
+          it.printf(0, 20, id(main_font), "Humidity: %.0f%%", id(humidity).state);
+          it.printf(0, 30, id(main_font), "Temp: %.0fF", (id(temp).state * 1.8) + 32);
+
+# https://esphome.io/components/display/#fonts
+font:
+  - file: "fonts/RobotoCondensed-Regular.ttf"
+    id: main_font
+    size: 10
+
+# https://esphome.io/components/i2c
+i2c:
+  sda: D2
+  scl: D1
+
+interval:
+  # Update display
+  - interval: 5s
+    then:
+      - display.page.show_next: oled
+      - component.update: oled
+
+# Configure sensors
+# https://esphome.io/components/sensor/
+sensor:
+  # https://esphome.io/components/sensor/sht3xd.html
+  - platform: sht3xd
+    temperature:
+      id: temp
+      name: "${device_name} Temperature"
+      filters:
+      - lambda: return x * (9.0/5.0) + 32.0 - 2.25; 
+      unit_of_measurement: "°F"
+    humidity:
+      id: humidity
+      name: "${device_name} Humidity"
+    address: 0x44
+    update_interval: 5s
+  # https://esphome.io/components/sensor/pmsx003.html
+  - platform: pmsx003
+    type: PMS5003T
+    uart_id: uart_pmsx003
+    pm_2_5:
+      name: "${device_name} Particulate Matter <2.5µm Concentration"
+      id: pm25
+  # https://esphome.io/components/sensor/senseair.html
+  - platform: senseair
+    uart_id: uart_senseair
+    co2:
+      id: co2
+      name: "${device_name} CO2 Value"
+    update_interval: 60s
+
+# Configure switches
+# https://esphome.io/components/switch/
+switch:
+  # Create a switch for safe_mode in order to flash the device
+  # Solution from this thread:
+  # https://community.home-assistant.io/t/esphome-flashing-over-wifi-does-not-work/357352/1
+  - platform: safe_mode
+    name: "${device_name} Flash Mode (Safe Mode)"
+
+# Configure UART
+# https://esphome.io/components/uart
+uart:
+  - rx_pin: D5
+    tx_pin: D6
+    baud_rate: 9600
+    id: uart_pmsx003
+  - rx_pin: D4
+    tx_pin: D3
+    baud_rate: 9600
+    id: uart_senseair
