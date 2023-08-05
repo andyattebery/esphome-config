@@ -1,8 +1,10 @@
 # Variables
 substitutions:
-  api_encryption_key: "api_encryption_key"
-  ota_password: "ota_password"
-  fallback_ap_password: "fallback_ap_password"
+  api_encryption_key: ""
+  fallback_ap_password: ""
+  ota_password: ""
+  wifi_password: ""
+  wifi_ssid: ""
 
 # Enable Home Assistant API
 # https://esphome.io/components/api
