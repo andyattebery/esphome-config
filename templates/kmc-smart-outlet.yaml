@@ -47,13 +47,21 @@ sensor:
     cf1_pin: GPIO5
     current:
       name: "Current"
+      accuracy_decimals: 5
     voltage:
       name: "Voltage"
+      accuracy_decimals: 5
     power:
       name: "Power"
+      accuracy_decimals: 5
     energy:
       name: "Energy"
+      accuracy_decimals: 5
     update_interval: 60s
+    current_resistor: 0.0028
+    voltage_divider: 2150
+    change_mode_every: 4
+    initial_mode: CURRENT
   # https://esphome.io/components/sensor/wifi_signal
   - platform: wifi_signal
     name: "WiFi Signal"
