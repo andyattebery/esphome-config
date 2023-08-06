@@ -43,16 +43,12 @@ sensor:
   - platform: cse7766
     current:
       name: "Current"
-      accuracy_decimals: 1
     voltage:
       name: "Voltage"
-      accuracy_decimals: 1
     power:
       name: "Power"
-      accuracy_decimals: 1
     energy:
       name: "Energy"
-      accuracy_decimals: 1
   # https://esphome.io/components/sensor/wifi_signal
   - platform: wifi_signal
     name: "WiFi Signal"
