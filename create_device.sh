@@ -21,6 +21,5 @@ packages:
   remote_package:
     url: https://github.com/andyattebery/esphome-configs
     files:
-      - packages/base.yaml
-      - packages/$device_package.yaml
+      - templates/$device_package.yaml
 EOL
