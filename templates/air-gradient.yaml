@@ -17,6 +17,11 @@ packages:
 esp8266:
   board: d1_mini
 
+# https://esphome.io/guides/creators#relevant-documentation
+dashboard_import:
+  package_import_url: github://andyattebery/esphome-configs/templates/air-gradient.yaml
+  import_full_config: false
+
 # https://esphome.io/components/display/
 display:
   # https://esphome.io/components/display/ssd1306.html
