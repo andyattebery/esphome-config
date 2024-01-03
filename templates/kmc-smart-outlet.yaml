@@ -2,6 +2,12 @@
 substitutions:
   esphome_project_name: "KMC.SmartOutlet"
   esphome_project_version: "1.0"
+  enable_button: false
+
+globals:
+  - id: global_enable_button
+    type: bool
+    initial_value: '${enable_button}'
 
 # https://esphome.io/guides/configuration-types#packages
 packages:
@@ -26,9 +32,13 @@ binary_sensor:
       inverted: true
     name: "Button"
     on_press:
-      - switch.toggle: relay1
-      - switch.toggle: relay2
-      - switch.toggle: relay3
+      - if:
+          condition:
+            lambda: 'return id(global_enable_button);'
+          then:
+            - switch.toggle: relay1
+            - switch.toggle: relay2
+            - switch.toggle: relay3
   # https://esphome.io/components/binary_sensor/status
   - platform: status
     name: "Status"
