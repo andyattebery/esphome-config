@@ -2,7 +2,7 @@
 substitutions:
   esphome_project_name: "KMC.SmartOutlet"
   esphome_project_version: "1.0"
-  enable_button: false
+  enable_button: "true"
 
 globals:
   - id: global_enable_button
