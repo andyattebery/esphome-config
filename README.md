@@ -23,3 +23,7 @@ Flashing can be done with another computer and OS version, but this is what _eve
 12. Wait for the script to run. If successful, it will prompt to install the firmware.
 13. Select the firmware file that was copied to `/files`.
 14. Wait for the firmware to install. If successful, the outlet will reboot and connect to the ESPHome dashboard.
+
+## Sonoff S31
+
+1. [Disassembly and flashing instructions](https://alfter.us/2021/12/12/using-the-sonoff-s31-with-esphome-first-time-flash/)

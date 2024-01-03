@@ -1,6 +1,7 @@
 # Variables
 substitutions:
   device_name: ""
+  # Default the friendly_name to the required device_name
   friendly_name: "${device_name}"
   esphome_project_name: ""
   esphome_project_version: ""
@@ -13,6 +14,9 @@ substitutions:
 # https://esphome.io/components/esphome
 esphome:
   name: "${device_name}"
+  # Set friendly_name so Home Assistant use it to prefix entity names
+  # so they'll be unique to each device.
+  # https://esphome.io/components/esphome.html#configuration-variables
   friendly_name: "${friendly_name}"
   project:
     name: "${esphome_project_name}"
