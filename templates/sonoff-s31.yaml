@@ -2,6 +2,7 @@
 substitutions:
   esphome_project_name: "Sonoff.S31"
   esphome_project_version: "1.0"
+  update_interval: 60s
 
 # https://esphome.io/guides/configuration-types#packages
 packages:
@@ -44,15 +45,23 @@ sensor:
     current:
       name: "Current"
       accuracy_decimals: 5
+      filters:
+        - throttle_average: ${update_interval}
     voltage:
       name: "Voltage"
       accuracy_decimals: 5
+      filters:
+        - throttle_average: ${update_interval}
     power:
       name: "Power"
       accuracy_decimals: 5
+      filters:
+        - throttle_average: ${update_interval}
     energy:
       name: "Energy"
       accuracy_decimals: 5
+      filters:
+        - throttle: ${update_interval}
   # https://esphome.io/components/sensor/wifi_signal
   - platform: wifi_signal
     name: "WiFi Signal"
