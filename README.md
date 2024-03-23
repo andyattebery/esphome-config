@@ -13,10 +13,10 @@ Starting with ESPHome version [2023.9.0](https://github.com/esphome/home-assista
 To get access to the "new" location which only the ESPHome add-on has access to, you can:
 
 1. Install the [Advanced SSH & Web Terminal]() add-on.
-2. Disable "Protection mode" from the add-on's "Info" tab which enables access to the `docker` command.
+2. Disable "Protection mode" from the add-on's "Info" tab which enables root access and therefore the ability to use the `docker` command.
 3. Get the ESPHome add-on's container name with `docker ps`.
 4. Get shell access to the ESPHome add-on with `docker exec -it <esphome_container_name> bash`.
-5. Delete the remote package directory with `rm /data/packages/<package_sha>`.
+5. Delete the remote package directory with `rm -r /data/packages/<package_sha>`.
 
 ## KMC Smart Tap
 
