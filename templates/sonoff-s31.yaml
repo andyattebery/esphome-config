@@ -62,6 +62,16 @@ sensor:
       accuracy_decimals: 5
       filters:
         - throttle: ${update_interval}
+    apparent_power:
+      name: Apparent Power
+      accuracy_decimals: 5
+      filters:
+        - throttle_average: ${update_interval}
+    power_factor:
+      name: Power Factor
+      accuracy_decimals: 5
+      filters:
+        - throttle_average: ${update_interval}
   # https://esphome.io/components/sensor/wifi_signal
   - platform: wifi_signal
     name: "WiFi Signal"
