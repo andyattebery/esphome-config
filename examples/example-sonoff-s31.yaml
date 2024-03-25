@@ -10,5 +10,4 @@ packages:
   remote_package:
     url: https://github.com/andyattebery/esphome-configs
     files:
-      - packages/base.yaml
-      - packages/sonoff-s31.yaml
+      - templates/sonoff-s31.yaml

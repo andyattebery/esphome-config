@@ -32,7 +32,7 @@ secret_fallback_ap_password="${device_name_with_underscores}_fallback_ap_passwor
 secret_ota_password="${device_name_with_underscores}_ota_password"
 
 # Create file
-cat >"$device_name.yaml" <<EOL
+cat >../"$device_name.yaml" <<EOL
 substitutions:
   device_name: "$device_name"
   friendly_name: "$friendly_name"
