@@ -1,0 +1,14 @@
+substitutions:
+  device_name: "desk-outlet"
+  friendly_name: "Desk Outlet"
+  api_encryption_key: !secret desk_outlet_api_encryption_key
+  fallback_ap_password: !secret desk_outlet_fallback_ap_password
+  ota_password: !secret desk_outlet_ota_password
+  wifi_password: !secret wifi_password
+  wifi_ssid: !secret wifi_ssid
+
+packages:
+  remote_package:
+    url: https://github.com/andyattebery/esphome
+    files:
+      - templates/sonoff-s31.yaml

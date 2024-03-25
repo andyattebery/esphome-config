@@ -1,0 +1,18 @@
+substitutions:
+  device_name: "desk-3-switch-01-outlet"
+  friendly_name: "Desk 3 Switch 01 Outlet"
+  api_encryption_key: !secret desk_3_switch_01_outlet_api_encryption_key
+  fallback_ap_password: !secret desk_3_switch_01_outlet_fallback_ap_password
+  ota_password: !secret desk_3_switch_01_outlet_ota_password
+  wifi_password: !secret wifi_password
+  wifi_ssid: !secret wifi_ssid
+
+packages:
+  remote_package:
+    url: https://github.com/andyattebery/esphome
+    files:
+      - templates/kmc-smart-outlet.yaml
+
+wifi:
+  ap:
+    ssid: "desk-3-switch-01-Fallback-AP"
