@@ -6,6 +6,8 @@ fi
 
 OP_ESPHOME_ITEM_NAME="ESPHome"
 
+esphome_dir="$(dirname $0)/.."
+
 device_name=$1
 friendly_name=$2
 device_package=$3
@@ -32,7 +34,7 @@ secret_fallback_ap_password="${device_name_with_underscores}_fallback_ap_passwor
 secret_ota_password="${device_name_with_underscores}_ota_password"
 
 # Create file
-cat >../"$device_name.yaml" <<EOL
+cat >"$esphome_dir/$device_name.yaml" <<EOL
 substitutions:
   device_name: "$device_name"
   friendly_name: "$friendly_name"
