@@ -1,0 +1,14 @@
+substitutions:
+  device_name: "3-switch-outlet-01"
+  friendly_name: "3-switch-outlet-01"
+  api_encryption_key: !secret 3_switch_outlet_01_api_encryption_key
+  fallback_ap_password: !secret 3_switch_outlet_01_fallback_ap_password
+  ota_password: !secret 3_switch_outlet_01_ota_password
+  wifi_password: !secret wifi_password
+  wifi_ssid: !secret wifi_ssid
+
+packages:
+  remote_package:
+    url: https://github.com/andyattebery/esphome
+    files:
+      - templates/kmc-smart-outlet.yaml
