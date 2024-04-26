@@ -11,4 +11,4 @@ packages:
   remote_package:
     url: https://github.com/andyattebery/esphome-config
     files:
-      - templates/air-gradient.yaml
+      - templates/air-gradient-one.yaml
