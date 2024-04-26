@@ -1,4 +1,6 @@
 substitutions:
+  esphome_project_name: "AirGradient.One"
+  esphome_project_version: "1.0"
   # github://MallocArray/airgradient_esphome/airgradient-one.yaml
   name: "${device_name}"
   config_version: 2.0.1
