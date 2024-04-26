@@ -46,7 +46,7 @@ substitutions:
 
 packages:
   remote_package:
-    url: https://github.com/andyattebery/esphome
+    url: https://github.com/andyattebery/esphome-config
     files:
       - templates/$device_package.yaml
 EOL
