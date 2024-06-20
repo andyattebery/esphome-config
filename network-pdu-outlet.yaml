@@ -1,6 +1,6 @@
 substitutions:
-  device_name: "outlet-02"
-  friendly_name: "outlet-02"
+  device_name: "network-pdu-outlet"
+  friendly_name: "Network PDU Outlet"
   api_encryption_key: !secret outlet_02_api_encryption_key
   fallback_ap_password: !secret outlet_02_fallback_ap_password
   ota_password: !secret outlet_02_ota_password
