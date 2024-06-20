@@ -36,6 +36,7 @@ api:
 # Enable over-the-air updates
 # https://esphome.io/components/ota
 ota:
+  platform: esphome
   password: "${ota_password}"
 
 # Set WiFi credentials
