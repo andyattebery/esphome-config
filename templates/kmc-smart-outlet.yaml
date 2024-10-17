@@ -19,7 +19,7 @@ esp8266:
   restore_from_flash: true
 # https://esphome.io/guides/creators#relevant-documentation
 dashboard_import:
-  package_import_url: github://andyattebery/esphome-configs/templates/kmc-smart-outlet.yaml
+  package_import_url: github://andyattebery/esphome-config/templates/kmc-smart-outlet.yaml
   import_full_config: false
 
 # https://esphome.io/components/binary_sensor/

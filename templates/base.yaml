@@ -24,7 +24,7 @@ esphome:
 
 # https://esphome.io/guides/creators#relevant-documentation
 dashboard_import:
-  package_import_url: github://andyattebery/esphome-configs/templates/base.yaml
+  package_import_url: github://andyattebery/esphome-config/templates/base.yaml
   import_full_config: false
 
 # Enable Home Assistant API
