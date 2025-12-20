@@ -4,7 +4,7 @@ substitutions:
   esphome_project_version: "1.0"
   update_interval: 60s
 
-# https://esphome.io/guides/configuration-types#packages
+# https://esphome.io/components/packages/
 packages:
   base: !include base.yaml
 
