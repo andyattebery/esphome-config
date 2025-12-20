@@ -1,6 +1,7 @@
 substitutions:
-  name: esp32-s3-box-3-01
-  friendly_name: ESP32 S3 Box 3 01
+  name: esp32-s3-box-3-050604
+  friendly_name: Home Assistant Voice Box
+
 packages:
   esphome.voice-assistant: github://esphome/firmware/wake-word-voice-assistant/esp32-s3-box-3.yaml@main
 esphome:
@@ -9,8 +10,7 @@ esphome:
   friendly_name: ${friendly_name}
 api:
   encryption:
-    key: usGJ+poZrFAFTmk3qgfz3bDLHR9pgZvP4QIAdR94Jsk=
-
+    key: !secret esp32_s3_box_3_050604_api_encryption_key
 
 wifi:
   ssid: !secret wifi_ssid
