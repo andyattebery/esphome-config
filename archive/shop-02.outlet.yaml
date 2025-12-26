@@ -1,0 +1,24 @@
+substitutions:
+  device_name: "shop-02-outlet"
+  friendly_name: "shop-02 Outlet"
+  api_encryption_key: !secret mac_mini_01_outlet_api_encryption_key
+  fallback_ap_password: !secret mac_mini_01_outlet_fallback_ap_password
+  ota_password: !secret mac_mini_01_outlet_ota_password
+  # wifi_password: !secret wifi_password
+  # wifi_ssid: !secret wifi_ssid
+
+# packages:
+#   remote_package:
+#     url: https://github.com/andyattebery/esphome
+#     files:
+#       - templates/sonoff-s31.yaml
+
+packages:
+  base: !include templates/sonoff-s31.yaml
+
+wifi:
+  networks:
+  - ssid: !secret wifi_ssid
+    password: !secret wifi_password
+  - ssid: Don-PC-Wireless
+    password: dandy123

@@ -42,9 +42,10 @@ ota:
 # Set WiFi credentials
 # https://esphome.io/components/wifi
 wifi:
-  ssid: "${wifi_ssid}"
-  password: "${wifi_password}"
   min_auth_mode: WPA2
+  networks:
+    - ssid: "${wifi_ssid}"
+      password: "${wifi_password}"
 
   # Enable fallback access point in case wifi connection fails
   ap:
