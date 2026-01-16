@@ -1,0 +1,4 @@
+wifi:
+  networks:
+  - ssid: !secret omega_wifi_ssid
+    password: !secret omega_wifi_password

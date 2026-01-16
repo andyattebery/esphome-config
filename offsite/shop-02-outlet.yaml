@@ -1,0 +1,15 @@
+substitutions:
+  device_name: "shop-02-outlet"
+  friendly_name: "shop-02 Outlet"
+  api_encryption_key: !secret shop_02_outlet_api_encryption_key
+  fallback_ap_password: !secret shop_02_outlet_fallback_ap_password
+  ota_password: !secret shop_02_outlet_ota_password
+  wifi_password: !secret offsite_wifi_password
+  wifi_ssid: !secret offsite_wifi_ssid
+
+packages:
+  remote_package:
+    url: https://github.com/andyattebery/esphome
+    files:
+      - templates/sonoff-s31.yaml
+  base_offsite: !include packages/base-offsite.yaml
